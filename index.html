@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+<!-- Scroll padding so fixed nav never covers section titles -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,6 +49,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-padding-top: 110px;
     }
 
     body {
@@ -118,6 +123,7 @@
       display: flex;
       justify-content: center;
       padding: 0 20px;
+      pointer-events: none;
     }
 
     .nav-bar {
@@ -129,6 +135,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      pointer-events: auto;
     }
 
     .brand {
@@ -265,7 +272,7 @@
 
     /* Hero Section */
     .hero {
-      padding-top: 150px;
+      padding-top: 165px;
       padding-bottom: 80px;
       position: relative;
     }
@@ -501,6 +508,7 @@
     /* Section Styles */
     .section {
       padding: 90px 0;
+      scroll-margin-top: 90px;
     }
 
     .section-header {
@@ -933,6 +941,9 @@
       .hero-title {
         font-size: 2.75rem;
       }
+      .hero {
+        padding-top: 150px;
+      }
       .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 {
         grid-column: span 12;
       }
@@ -1011,9 +1022,9 @@
         display: inline;
       }
 
-      /* Hero Mobile */
+      /* Hero Mobile - generous clearance so fixed nav never overlaps badge or title */
       .hero {
-        padding-top: 96px;
+        padding-top: 140px;
         padding-bottom: 40px;
       }
 
@@ -1176,6 +1187,9 @@
     @media (max-width: 400px) {
       .hero-title {
         font-size: 1.85rem;
+      }
+      .hero {
+        padding-top: 130px;
       }
 
       .hero-stats {
