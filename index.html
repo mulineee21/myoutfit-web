@@ -835,22 +835,357 @@
       margin-bottom: 40px;
     }
 
-    /* Responsive */
+    /* Grid Helper Classes */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .install-steps-grid {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Mobile Menu Toggle & Dropdown Styles */
+    .mobile-menu-toggle {
+      display: none;
+      padding: 8px;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-btn-text-mobile {
+      display: none;
+    }
+
+    .mobile-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 16px;
+      right: 16px;
+      border-radius: 24px;
+      padding: 16px 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      z-index: 999;
+      animation: fadeInDown 0.25s ease-out;
+    }
+
+    .mobile-dropdown-menu.open {
+      display: block;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: rgba(168, 85, 247, 0.2);
+      color: #fff;
+    }
+
+    .mobile-nav-link.download-highlight {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(124, 58, 237, 0.35) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #e9d5ff;
+    }
+
+    /* Responsive Breakpoints */
     @media (max-width: 992px) {
       .hero-grid, .playground-grid, .download-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
       .hero-title {
         font-size: 2.75rem;
       }
-      .col-8, .col-7, .col-6, .col-5, .col-4 {
+      .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 {
         grid-column: span 12;
       }
       .nav-links {
         display: none;
       }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .install-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Fixed Nav Mobile Styling */
+      .nav-wrapper {
+        top: 10px;
+        padding: 0 12px;
+      }
+
+      .nav-bar {
+        padding: 8px 12px;
+        border-radius: 9999px;
+        gap: 8px;
+      }
+
+      .brand {
+        font-size: 1.05rem;
+        gap: 8px;
+      }
+
+      .brand img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .brand .badge {
+        display: none; /* Hide version badge on mobile navbar to prevent squeezing */
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-btn-github {
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-btn-github .nav-btn-text {
+        display: none;
+      }
+
+      .nav-btn-download {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .nav-btn-download .nav-btn-text {
+        display: none;
+      }
+
+      .nav-btn-download .nav-btn-text-mobile {
+        display: inline;
+      }
+
+      /* Hero Mobile */
+      .hero {
+        padding-top: 96px;
+        padding-bottom: 40px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.18;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding-top: 16px;
+        text-align: center;
+      }
+
+      .stat-item h4 {
+        font-size: 1.05rem;
+      }
+
+      .stat-item p {
+        font-size: 0.7rem;
+        line-height: 1.3;
+      }
+
+      /* Phone Frame Fluid Mobile */
+      .phone-frame {
+        max-width: 100%;
+        width: 100%;
+        height: 640px;
+        border-radius: 36px;
+      }
+
+      /* Sections Mobile */
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-header {
+        margin-bottom: 36px;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+
+      .section-desc {
+        font-size: 0.95rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .glass-card {
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
+      }
+
+      /* Playground Mobile */
+      .playground-box {
+        padding: 22px 16px;
+        border-radius: 20px;
+      }
+
+      .interactive-chip {
+        padding: 7px 12px;
+        font-size: 0.78rem;
+      }
+
+      .result-card {
+        padding: 18px 14px;
+        border-radius: 16px;
+      }
+
+      /* Download Card Mobile */
+      .download-card {
+        padding: 28px 16px;
+        border-radius: 20px;
+      }
+
+      .download-card h2 {
+        font-size: 1.85rem !important;
+      }
+
+      .download-card p {
+        font-size: 0.95rem !important;
+      }
+
+      .download-card .btn {
+        width: 100%;
+      }
+
+      /* Checksum bar wraps on mobile */
+      .checksum-bar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      #checksum-text {
+        white-space: normal !important;
+        word-break: break-all;
+        font-size: 0.68rem;
+      }
+
+      .qr-box {
+        padding: 18px 12px;
+      }
+
+      .qr-svg-wrapper {
+        width: 150px;
+        height: 150px;
+      }
+
+      /* Stack Grid 1 col on small phones */
+      .stack-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      /* FAQ Question mobile */
+      .faq-question {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
+
+      .faq-answer {
+        padding: 0 18px;
+        font-size: 0.88rem;
+      }
+
+      .faq-item.open .faq-answer {
+        padding-bottom: 16px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 1.85rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 8px;
       }
     }
   </style>
@@ -875,16 +1210,33 @@
       </ul>
 
       <div class="nav-actions">
-        <a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm" title="Ver código en GitHub">
+        <a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm nav-btn-github" title="Ver código en GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          <span>GitHub</span>
+          <span class="nav-btn-text">GitHub</span>
         </a>
-        <a href="#descargar" class="btn btn-primary btn-sm">
+        <a href="#descargar" class="btn btn-primary btn-sm nav-btn-download">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>Descargar APK</span>
+          <span class="nav-btn-text">Descargar APK</span>
+          <span class="nav-btn-text-mobile">APK</span>
         </a>
+        <button class="btn btn-glass btn-sm mobile-menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+          <svg class="hamburger-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="close-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
     </nav>
+    <!-- Mobile Glass Dropdown Menu -->
+    <div class="mobile-dropdown-menu glass" id="mobile-dropdown-menu">
+      <ul class="mobile-nav-list">
+        <li><a href="#caracteristicas" class="mobile-nav-link" onclick="closeMobileMenu()">✨ Características</a></li>
+        <li><a href="#como-funciona" class="mobile-nav-link" onclick="closeMobileMenu()">🔄 Cómo Funciona</a></li>
+        <li><a href="#demo" class="mobile-nav-link" onclick="closeMobileMenu()">🧠 Demo Interactiva IA</a></li>
+        <li><a href="#stack" class="mobile-nav-link" onclick="closeMobileMenu()">🏛️ Arquitectura & Stack</a></li>
+        <li><a href="#preguntas" class="mobile-nav-link" onclick="closeMobileMenu()">❓ Preguntas Frecuentes</a></li>
+        <li><a href="#descargar" class="mobile-nav-link download-highlight" onclick="closeMobileMenu()">📥 Descargar APK (v1.0.0)</a></li>
+        <li><a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" onclick="closeMobileMenu()">🐙 Ver en GitHub</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- HERO SECTION -->
@@ -1350,7 +1702,7 @@
       <p class="section-desc">En solo 3 pasos transformarás tu forma de vestir cada mañana.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+    <div class="steps-grid">
       <div class="glass-card">
         <div style="font-size: 2.2rem; font-weight: 800; color: #c084fc; margin-bottom: 16px;">01</div>
         <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px;">Digitaliza tus prendas</h4>
@@ -1385,7 +1737,7 @@
       <p class="section-desc">Diseñada siguiendo Clean Architecture, principios SOLID y las directrices oficiales de Android.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <div class="stack-grid">
       <div class="glass-card" style="padding: 20px; text-align: center;">
         <div style="font-size: 2rem; margin-bottom: 8px;">🟣</div>
         <h4 style="color:#fff; font-size: 1.05rem; font-weight:700;">Kotlin 100%</h4>
@@ -1471,7 +1823,7 @@
       </div>
 
       <!-- Installation Guide Steps -->
-      <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div class="install-steps-grid">
         <div style="display: flex; gap: 14px; align-items: flex-start;">
           <div style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
           <div>
@@ -1840,6 +2192,49 @@
         btn.innerText = origText;
       }, 500);
     }
+
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-dropdown-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      const hamburger = btn.querySelector('.hamburger-icon');
+      const close = btn.querySelector('.close-icon');
+
+      const isOpen = menu.classList.contains('open');
+      if (isOpen) {
+        menu.classList.remove('open');
+        hamburger.style.display = 'block';
+        close.style.display = 'none';
+      } else {
+        menu.classList.add('open');
+        hamburger.style.display = 'none';
+        close.style.display = 'block';
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-dropdown-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      if (menu && btn) {
+        menu.classList.remove('open');
+        const hamburger = btn.querySelector('.hamburger-icon');
+        const close = btn.querySelector('.close-icon');
+        if (hamburger) hamburger.style.display = 'block';
+        if (close) close.style.display = 'none';
+      }
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobile-dropdown-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      if (menu && btn && menu.classList.contains('open')) {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          closeMobileMenu();
+        }
+      }
+    });
+
   </script>
 </body>
 </html>
