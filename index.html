@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyOutfit — Tu Armario Digital & Recomendador Inteligente con Google Gemini IA</title>
+  <meta name="description" content="MyOutfit es la aplicación para Android en Kotlin y Jetpack Compose que utiliza Google Gemini IA para recomendarte qué ropa ponerte y elegir tu outfit diario ideal según la ocasión, tus gustos y tu armario." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="MyOutfit — Estilista Personal con Google Gemini IA" />
+  <meta property="og:description" content="Recomendaciones inteligentes de ropa con Google Gemini IA adaptadas a tu ocasión, gustos y armario." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="data:image/webp;base64,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" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #070711;
+      --bg-card: rgba(18, 16, 31, 0.55);
+      --bg-card-hover: rgba(28, 24, 48, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-border-hover: rgba(192, 132, 252, 0.4);
+      --glass-glow: rgba(168, 85, 247, 0.25);
+      
+      --accent-purple: #c084fc;
+      --accent-violet: #a855f7;
+      --accent-primary: #8b5cf6;
+      --accent-pink: #f472b6;
+      --accent-rose: #fb7185;
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #34d399;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-sub: #cbd5e1;
+      
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+      selection-background-color: rgba(168, 85, 247, 0.35);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(244, 114, 182, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 75%, rgba(99, 102, 241, 0.14) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Modern Glassmorphic Container */
+    .glass {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(26, 22, 45, 0.6) 0%, rgba(13, 12, 26, 0.45) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      opacity: 0.5;
+    }
+
+    .glass-card:hover {
+      border-color: var(--glass-border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px -12px var(--glass-glow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Floating Navigation */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .nav-bar {
+      width: 100%;
+      max-width: 1100px;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: #fff;
+      box-shadow: 0 10px 30px -8px rgba(168, 85, 247, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px -6px rgba(168, 85, 247, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      background: linear-gradient(135deg, #b86bfc 0%, #8b4bf0 100%);
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(192, 132, 252, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      border-radius: 9999px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #a855f7;
+      box-shadow: 0 0 10px #a855f7;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+    }
+
+    /* Gradient Typography */
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 10%, #d8b4fe 55%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-gemini {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 40%, #c084fc 80%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-top: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-item h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Phone Mockup Simulator */
+    .phone-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(244, 114, 182, 0.15) 50%, transparent 75%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .phone-frame {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 350px;
+      height: 690px;
+      background: #0f0d19;
+      border-radius: 46px;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 
+        0 25px 60px -15px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(0, 0, 0, 0.9),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 22px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 8px;
+    }
+
+    .notch-camera {
+      width: 10px;
+      height: 10px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 50%;
+    }
+
+    .notch-sensor {
+      width: 6px;
+      height: 6px;
+      background: #1a1a2e;
+      border-radius: 50%;
+    }
+
+    .phone-status-bar {
+      height: 40px;
+      padding: 10px 20px 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      z-index: 40;
+    }
+
+    .phone-screen {
+      flex: 1;
+      padding: 10px 16px 70px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      scrollbar-width: none;
+    }
+    .phone-screen::-webkit-scrollbar { display: none; }
+
+    /* Inside Phone App Components */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 4px;
+    }
+
+    .app-logo-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .app-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .interactive-pill-group {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .interactive-pill-group::-webkit-scrollbar { display: none; }
+
+    .chip-btn {
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .chip-btn.active {
+      background: rgba(168, 85, 247, 0.25);
+      border-color: #c084fc;
+      color: #fff;
+    }
+
+    .phone-bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: rgba(15, 13, 25, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      z-index: 50;
+    }
+
+    .phone-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      transition: color 0.2s;
+    }
+
+    .phone-tab.active {
+      color: #c084fc;
+    }
+
+    .phone-tab svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-purple);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-7 { grid-column: span 7; }
+    .col-6 { grid-column: span 6; }
+    .col-5 { grid-column: span 5; }
+    .col-4 { grid-column: span 4; }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .feature-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-sub);
+    }
+
+    /* Interactive Playground Section */
+    .playground-box {
+      border-radius: 28px;
+      padding: 40px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      background: linear-gradient(135deg, rgba(28, 22, 50, 0.7) 0%, rgba(12, 10, 24, 0.8) 100%);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .playground-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .selectable-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .interactive-chip {
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .interactive-chip.selected {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(236, 72, 153, 0.25) 100%);
+      border-color: #c084fc;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #a855f7;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Result Preview Card */
+    .result-card {
+      background: rgba(18, 14, 32, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .gemini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+    }
+
+    /* Download Box */
+    .download-card {
+      background: linear-gradient(135deg, rgba(28, 20, 52, 0.7) 0%, rgba(15, 12, 30, 0.8) 100%);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      box-shadow: 0 25px 60px -15px rgba(168, 85, 247, 0.25);
+      border-radius: 28px;
+      padding: 48px;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .qr-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .qr-svg-wrapper {
+      width: 170px;
+      height: 170px;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-svg-wrapper svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .checksum-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    /* Accordion FAQ */
+    .faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+      padding: 0 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .playground-grid, .download-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.75rem;
+      }
+      .col-8, .col-7, .col-6, .col-5, .col-4 {
+        grid-column: span 12;
+      }
+      .nav-links {
+        display: none;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Translucent Navbar -->
+  <div class="nav-wrapper">
+    <nav class="glass nav-bar">
+      <a href="#" class="brand">
+        <img src="data:image/webp;base64,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" alt="MyOutfit Logo" />
+        <span>MyOutfit</span>
+        <span class="badge btn-sm" style="padding: 2px 8px; font-size: 0.7rem;">v1.0.0</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#caracteristicas" class="nav-link">Características</a></li>
+        <li><a href="#como-funciona" class="nav-link">Cómo Funciona</a></li>
+        <li><a href="#demo" class="nav-link">Demo IA</a></li>
+        <li><a href="#stack" class="nav-link">Arquitectura</a></li>
+        <li><a href="#preguntas" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm" title="Ver código en GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="#descargar" class="btn btn-primary btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Descargar APK</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero container">
+    <div class="hero-grid">
+      <!-- Left Content -->
+      <div>
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          <span>Potenciado por Google Gemini 1.5 Flash</span>
+        </div>
+
+        <h1 class="hero-title">
+          Tu Armario Digital.<br>
+          <span class="gradient-text">Tu Estilista Personal con IA.</span>
+        </h1>
+
+        <p class="hero-desc">
+          MyOutfit integra Google Gemini IA para recomendarte qué ropa ponerte en cada momento: analiza tus prendas, tu ocasión, el clima y tus gustos para seleccionar la mejor combinación de ropa y ofrecerte consejos de estilismo personalizados.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="https://github.com/mulineee21/MyOutfit/releases/download/v1.0.0/MyOutfit-JoelMolina-v1.0.0.apk" class="btn btn-primary" id="btn-hero-download">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Descargar APK v1.0.0</span>
+            <span style="opacity: 0.7; font-size: 0.8rem; font-weight: 400;">(26.6 MB)</span>
+          </a>
+
+          <a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Explorar Repositorio</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>100% Nativo</h4>
+            <p>Kotlin & Jetpack Compose M3</p>
+          </div>
+          <div class="stat-item">
+            <h4>100% Privado</h4>
+            <p>Tus fotos en almacenamiento local</p>
+          </div>
+          <div class="stat-item">
+            <h4>Gemini AI</h4>
+            <p>Consejos y matching en tiempo real</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive Phone Mockup -->
+      <div class="phone-container">
+        <div class="phone-glow"></div>
+        <div class="phone-frame">
+          <!-- Dynamic Notch -->
+          <div class="phone-notch">
+            <div class="notch-sensor"></div>
+            <div class="notch-camera"></div>
+          </div>
+
+          <!-- Status Bar -->
+          <div class="phone-status-bar">
+            <span>18:27</span>
+            <div style="display:flex; gap:6px; align-items:center;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17 4h3v16h-3zM12 8h3v12h-3zM7 12h3v8H7zM2 16h3v4H2z"/></svg>
+              <span>100%</span>
+            </div>
+          </div>
+
+          <!-- Phone Dynamic Screen -->
+          <div class="phone-screen" id="phone-screen-content">
+            <!-- Screen 1: Recomendador (Default Active) -->
+            <div id="sim-screen-recommendation">
+              <div class="app-header">
+                <div class="app-logo-title">
+                  <span style="font-size: 1.3rem;">✨</span>
+                  <span>Recomendador</span>
+                </div>
+                <span class="badge" style="font-size: 0.65rem; padding: 2px 8px;">Gemini 1.5</span>
+              </div>
+
+              <!-- Filter Selector Inside App -->
+              <div class="app-card" style="margin-top: 6px;">
+                <p style="font-size: 0.725rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 600;">¿Cuál es tu plan hoy?</p>
+                <div class="interactive-pill-group">
+                  <span class="chip-btn active" onclick="simSelectOccasion(this, 'Oficina & Trabajo')">💼 Oficina</span>
+                  <span class="chip-btn" onclick="simSelectOccasion(this, 'Cena Romántica')">🍷 Cena</span>
+                  <span class="chip-btn" onclick="simSelectOccasion(this, 'Fiesta Nocturna')">🎉 Fiesta</span>
+                  <span class="chip-btn" onclick="simSelectOccasion(this, 'Casual Relax')">☕ Relax</span>
+                </div>
+
+                <p style="font-size: 0.725rem; color: var(--text-muted); margin-top: 10px; margin-bottom: 6px; font-weight: 600;">Vibe deseado</p>
+                <div class="interactive-pill-group">
+                  <span class="chip-btn active" onclick="simSelectVibe(this, 'Elegante y cómodo')">✨ Elegante</span>
+                  <span class="chip-btn" onclick="simSelectVibe(this, 'Streetwear minimalista')">🔥 Streetwear</span>
+                  <span class="chip-btn" onclick="simSelectVibe(this, 'Casual colorido')">🎨 Colorido</span>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 14px; padding: 10px; font-size: 0.85rem; border-radius: 12px;" onclick="simRunGeminiRecommendation()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span id="sim-btn-text">Generar con Gemini</span>
+                </button>
+              </div>
+
+              <!-- Recommendation Result Box -->
+              <div id="sim-result-container" class="app-card" style="border-color: rgba(168, 85, 247, 0.4); background: rgba(28, 20, 52, 0.5);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                  <span style="font-size: 0.8rem; font-weight: 700; color: #fff;" id="sim-outfit-title">Look Oficina Minimalista</span>
+                  <span class="badge" style="font-size: 0.65rem; background: rgba(52, 211, 153, 0.2); color:#6ee7b7; border-color: rgba(52, 211, 153, 0.4);" id="sim-match-pct">98% Match</span>
+                </div>
+
+                <!-- Garments Mini Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px;" id="sim-garments-grid">
+                  <div style="background: rgba(255,255,255,0.06); padding: 8px 6px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 1.2rem;">👔</div>
+                    <div style="font-size: 0.65rem; font-weight: 600; color:#e2e8f0; margin-top:2px;">Camisa Oxford</div>
+                    <div style="font-size: 0.55rem; color:#94a3b8;">Azul Claro</div>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.06); padding: 8px 6px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 1.2rem;">👖</div>
+                    <div style="font-size: 0.65rem; font-weight: 600; color:#e2e8f0; margin-top:2px;">Chino Slim</div>
+                    <div style="font-size: 0.55rem; color:#94a3b8;">Beige Arena</div>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.06); padding: 8px 6px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 1.2rem;">👞</div>
+                    <div style="font-size: 0.65rem; font-weight: 600; color:#e2e8f0; margin-top:2px;">Derby Cuero</div>
+                    <div style="font-size: 0.55rem; color:#94a3b8;">Marrón Tabaco</div>
+                  </div>
+                </div>
+
+                <!-- AI Advice -->
+                <div style="background: rgba(168, 85, 247, 0.12); border-left: 3px solid #c084fc; padding: 6px 10px; border-radius: 4px;">
+                  <p style="font-size: 0.68rem; color: #e9d5ff; line-height: 1.4;" id="sim-ai-advice">
+                    💡 <strong>Consejo Gemini:</strong> Dobla ligeramente las mangas de la camisa para proyectar cercanía sin perder elegancia profesional.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 2: Armario (Hidden by default) -->
+            <div id="sim-screen-closet" style="display:none;">
+              <div class="app-header">
+                <div class="app-logo-title">
+                  <span style="font-size: 1.3rem;">🚪</span>
+                  <span>Mi Armario</span>
+                </div>
+                <span class="badge" style="font-size: 0.65rem;">24 prendas</span>
+              </div>
+              <div class="interactive-pill-group" style="margin-top: 4px;">
+                <span class="chip-btn active">Todos</span>
+                <span class="chip-btn">Tops (8)</span>
+                <span class="chip-btn">Pantalones (6)</span>
+                <span class="chip-btn">Calzado (4)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
+                <div class="app-card" style="padding: 10px; text-align: center;">
+                  <span style="font-size: 1.8rem;">🧥</span>
+                  <p style="font-size: 0.72rem; font-weight: 700; margin-top: 4px;">Chaqueta Biker</p>
+                  <p style="font-size: 0.6rem; color: #94a3b8;">Negro • Cuero</p>
+                </div>
+                <div class="app-card" style="padding: 10px; text-align: center;">
+                  <span style="font-size: 1.8rem;">👕</span>
+                  <p style="font-size: 0.72rem; font-weight: 700; margin-top: 4px;">Oversize Tee</p>
+                  <p style="font-size: 0.6rem; color: #94a3b8;">Blanco • Algodón</p>
+                </div>
+                <div class="app-card" style="padding: 10px; text-align: center;">
+                  <span style="font-size: 1.8rem;">👖</span>
+                  <p style="font-size: 0.72rem; font-weight: 700; margin-top: 4px;">Jeans Lavados</p>
+                  <p style="font-size: 0.6rem; color: #94a3b8;">Azul • Denim</p>
+                </div>
+                <div class="app-card" style="padding: 10px; text-align: center;">
+                  <span style="font-size: 1.8rem;">👟</span>
+                  <p style="font-size: 0.72rem; font-weight: 700; margin-top: 4px;">Sneakers Retro</p>
+                  <p style="font-size: 0.6rem; color: #94a3b8;">Blanco/Gris</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 3: Lookbook (Hidden by default) -->
+            <div id="sim-screen-lookbook" style="display:none;">
+              <div class="app-header">
+                <div class="app-logo-title">
+                  <span style="font-size: 1.3rem;">💡</span>
+                  <span>Lookbook</span>
+                </div>
+                <span class="badge" style="font-size: 0.65rem;">12 ideas</span>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--text-muted);">Referencias de estilo que guían a Gemini</p>
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                <div class="app-card" style="display: flex; gap: 10px; align-items: center;">
+                  <div style="font-size: 1.8rem; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 10px;">📸</div>
+                  <div>
+                    <h5 style="font-size: 0.78rem; font-weight: 700;">Streetwear Tokio 2026</h5>
+                    <p style="font-size: 0.65rem; color: var(--text-muted);">Siluetas holgadas, capas oscuras</p>
+                  </div>
+                </div>
+                <div class="app-card" style="display: flex; gap: 10px; align-items: center;">
+                  <div style="font-size: 1.8rem; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 10px;">🎨</div>
+                  <div>
+                    <h5 style="font-size: 0.78rem; font-weight: 700;">Old Money Minimal</h5>
+                    <p style="font-size: 0.65rem; color: var(--text-muted);">Tonos tierra, lino y neutros</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 4: Diario (Hidden by default) -->
+            <div id="sim-screen-log" style="display:none;">
+              <div class="app-header">
+                <div class="app-logo-title">
+                  <span style="font-size: 1.3rem;">📅</span>
+                  <span>Diario & Favoritos</span>
+                </div>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--text-muted);">Historial de outfits usados esta semana</p>
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                <div class="app-card" style="border-left: 3px solid #34d399;">
+                  <div style="display:flex; justify-content:space-between; font-size: 0.7rem; color: #94a3b8;">
+                    <span>Ayer • Domingo</span>
+                    <span>⭐ Favorito</span>
+                  </div>
+                  <h5 style="font-size: 0.8rem; font-weight: 700; margin-top: 4px;">Casual Brunch & Café</h5>
+                  <p style="font-size: 0.65rem; color: var(--text-muted);">Sudadera Gris + Chino Verde Oliva + Zapatillas</p>
+                </div>
+                <div class="app-card" style="border-left: 3px solid #38bdf8;">
+                  <div style="display:flex; justify-content:space-between; font-size: 0.7rem; color: #94a3b8;">
+                    <span>Viernes pasado</span>
+                    <span>Reunión de equipo</span>
+                  </div>
+                  <h5 style="font-size: 0.8rem; font-weight: 700; margin-top: 4px;">Smart Casual Blazer</h5>
+                  <p style="font-size: 0.65rem; color: var(--text-muted);">Blazer Azul Marino + Camiseta Blanca + Jeans</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Phone Navigation Tabs -->
+          <div class="phone-bottom-nav">
+            <button class="phone-tab" onclick="switchPhoneTab('closet', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+              <span>Armario</span>
+            </button>
+            <button class="phone-tab active" onclick="switchPhoneTab('recommendation', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Gemini IA</span>
+            </button>
+            <button class="phone-tab" onclick="switchPhoneTab('lookbook', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Lookbook</span>
+            </button>
+            <button class="phone-tab" onclick="switchPhoneTab('log', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Diario</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES BENTO GRID -->
+  <section class="section container" id="caracteristicas">
+    <div class="section-header">
+      <span class="section-tag">Diseñado para la vida real</span>
+      <h2 class="section-title">El poder de un estilista personal en tu bolsillo</h2>
+      <p class="section-desc">Olvídate de la fatiga de decisión matutina y de no saber qué ponerte. MyOutfit combina inteligencia artificial de vanguardia con tu propio guardarropa.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Feature 1: Gemini AI (Large) -->
+      <div class="glass-card col-8">
+        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="gemini-badge" style="margin-bottom: 12px;">Google Gemini 1.5 Flash</div>
+        <h3 class="feature-title">Motor de Recomendación Inteligente con Gemini IA</h3>
+        <p class="feature-desc">
+          Conéctate de forma segura con tu API Key personal de Google Gemini. El motor evalúa tus planes del día, la vibra que buscas, la temporada y tu lookbook de referencia para seleccionar piezas reales de tu armario y explicarte por qué combinan a la perfección.
+        </p>
+        <div class="tags-row">
+          <span class="tag-pill">Personalización por Ocasión</span>
+          <span class="tag-pill">Consejos de Estilo Únicos</span>
+          <span class="tag-pill">Coherencia Cromática</span>
+          <span class="tag-pill">Matching 100% Preciso</span>
+        </div>
+      </div>
+
+      <!-- Feature 2: Armario Digital (Medium) -->
+      <div class="glass-card col-4">
+        <div class="feature-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+        </div>
+        <h3 class="feature-title">Armario Digital Privado</h3>
+        <p class="feature-desc">
+          Captura fotos directamente con tu cámara o impórtalas de tu galería. Categorización en Tops, Pantalones, Vestidos, Abrigos, Calzado y Accesorios con almacenamiento local en SQLite Room.
+        </p>
+        <div class="tags-row">
+          <span class="tag-pill">Room Database</span>
+          <span class="tag-pill">Fotos en Local</span>
+          <span class="tag-pill">Zero Nube</span>
+        </div>
+      </div>
+
+      <!-- Feature 3: Inspiration Lookbook (Medium) -->
+      <div class="glass-card col-4">
+        <div class="feature-icon" style="background: rgba(244, 114, 182, 0.15); color: #f472b6;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3 class="feature-title">Lookbook de Inspiración</h3>
+        <p class="feature-desc">
+          Guarda imágenes de Pinterest, Instagram o revistas de moda. La IA utiliza tus tableros de inspiración para afinar tu estética y recomendarte combinaciones alineadas a tus gustos.
+        </p>
+        <div class="tags-row">
+          <span class="tag-pill">Estética Personal</span>
+          <span class="tag-pill">Guía para Gemini</span>
+        </div>
+      </div>
+
+      <!-- Feature 4: Historial & Anti-Repetición (Medium) -->
+      <div class="glass-card col-4">
+        <div class="feature-icon" style="background: rgba(52, 211, 153, 0.15); color: #34d399;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 class="feature-title">Diario & Anti-Repetición</h3>
+        <p class="feature-desc">
+          Lleva un registro del outfit usado cada día para planificar tu semana y no repetir ropa en el mismo círculo. Guarda tus combinaciones favoritas para acceder a ellas en 1 segundo.
+        </p>
+        <div class="tags-row">
+          <span class="tag-pill">Historial Semanal</span>
+          <span class="tag-pill">Favoritos con ⭐</span>
+        </div>
+      </div>
+
+      <!-- Feature 5: Motor Heurístico Offline (Medium) -->
+      <div class="glass-card col-4">
+        <div class="feature-icon" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="feature-title">Modo Heurístico Offline</h3>
+        <p class="feature-desc">
+          ¿En el metro o sin cobertura? MyOutfit cuenta con un algoritmo local determinista que combina prendas por reglas de estilo, contraste y estación sin consumir datos ni batería.
+        </p>
+        <div class="tags-row">
+          <span class="tag-pill">0ms Latencia</span>
+          <span class="tag-pill">100% Sin Conexión</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PLAYGROUND DEMO -->
+  <section class="section container" id="demo">
+    <div class="section-header">
+      <span class="section-tag">Pruébalo en vivo</span>
+      <h2 class="section-title">Generador de Outfits Interactivo</h2>
+      <p class="section-desc">Simula cómo la IA de MyOutfit analiza tus opciones y construye la combinación perfecta en milisegundos.</p>
+    </div>
+
+    <div class="playground-box">
+      <div class="playground-grid">
+        <!-- Interactive Controls -->
+        <div>
+          <div class="form-group">
+            <label class="form-label">1. ¿Qué ocasión tienes hoy?</label>
+            <div class="selectable-chips" id="web-occasion-chips">
+              <span class="interactive-chip selected" onclick="webSelectChip(this, 'work')">💼 Reunión de Trabajo</span>
+              <span class="interactive-chip" onclick="webSelectChip(this, 'night')">🎉 Fiesta de Noche</span>
+              <span class="interactive-chip" onclick="webSelectChip(this, 'casual')">☕ Paseo Casual</span>
+              <span class="interactive-chip" onclick="webSelectChip(this, 'date')">🍷 Cena Elegante</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">2. ¿Qué estilo o vibe buscas?</label>
+            <div class="selectable-chips" id="web-vibe-chips">
+              <span class="interactive-chip selected" onclick="webSelectVibe(this, 'chic')">✨ Smart Minimalista</span>
+              <span class="interactive-chip" onclick="webSelectVibe(this, 'street')">🔥 Streetwear Moderno</span>
+              <span class="interactive-chip" onclick="webSelectVibe(this, 'cozy')">☁️ Confort Relax</span>
+            </div>
+          </div>
+
+          <div class="toggle-row">
+            <div>
+              <div style="font-size: 0.88rem; font-weight: 600; color: #fff;">Usar Lookbook de Inspiración</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Alinea colores con tus fotos guardadas</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-lookbook" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%;" onclick="runWebDemoGeneration()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <span id="web-btn-text">Generar Combinación con Gemini IA</span>
+          </button>
+        </div>
+
+        <!-- Result Preview Display -->
+        <div class="result-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div class="gemini-badge">Gemini 1.5 Flash Verified</div>
+            <span class="badge" style="background: rgba(52, 211, 153, 0.2); color: #34d399; border-color: rgba(52, 211, 153, 0.4);" id="web-match-score">99% Match Preciso</span>
+          </div>
+
+          <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 6px;" id="web-result-title">Look Formal Contemporáneo</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;" id="web-result-reason">Equilibrio ideal entre sobriedad formal y comodidad para jornadas de oficina dinámicas.</p>
+
+          <!-- Garments list -->
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;" id="web-items-list">
+            <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.4rem;">🧥</span>
+                <div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: #fff;">Blazer Estructurado</div>
+                  <div style="font-size: 0.72rem; color: #94a3b8;">Parte Superior • Azul Marino</div>
+                </div>
+              </div>
+              <span class="tag-pill">En Armario</span>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.4rem;">👖</span>
+                <div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: #fff;">Pantalón Sastre Chino</div>
+                  <div style="font-size: 0.72rem; color: #94a3b8;">Parte Inferior • Gris Carbón</div>
+                </div>
+              </div>
+              <span class="tag-pill">En Armario</span>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.4rem;">👞</span>
+                <div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: #fff;">Zapatos Oxford Brogue</div>
+                  <div style="font-size: 0.72rem; color: #94a3b8;">Calzado • Cuero Café</div>
+                </div>
+              </div>
+              <span class="tag-pill">En Armario</span>
+            </div>
+          </div>
+
+          <!-- Advice Box -->
+          <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 14px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #e9d5ff; margin-bottom: 4px;">Consejo de Estilista Gemini:</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;" id="web-advice-text">
+              "Para reuniones formales, un pañuelo de bolsillo blanco sutil elevará inmediatamente el tono sin necesidad de corbata."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (3 SIMPLE STEPS) -->
+  <section class="section container" id="como-funciona">
+    <div class="section-header">
+      <span class="section-tag">Flujo Sencillo</span>
+      <h2 class="section-title">¿Cómo funciona MyOutfit?</h2>
+      <p class="section-desc">En solo 3 pasos transformarás tu forma de vestir cada mañana.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div class="glass-card">
+        <div style="font-size: 2.2rem; font-weight: 800; color: #c084fc; margin-bottom: 16px;">01</div>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px;">Digitaliza tus prendas</h4>
+        <p style="color: var(--text-muted); font-size: 0.925rem;">
+          Toma una foto rápida con la cámara o súbela desde tu galería. Clasifícala por categoría, color y temporada. Tus imágenes quedan seguras en tu dispositivo.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div style="font-size: 2.2rem; font-weight: 800; color: #38bdf8; margin-bottom: 16px;">02</div>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px;">Define tu plan del día</h4>
+        <p style="color: var(--text-muted); font-size: 0.925rem;">
+          Indica si vas a la oficina, a entrenar, a cenar o a relajarte. Elige la vibra que deseas transmitir y deja que Gemini analice la combinación idónea.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div style="font-size: 2.2rem; font-weight: 800; color: #f472b6; margin-bottom: 16px;">03</div>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px;">Luce tu mejor outfit</h4>
+        <p style="color: var(--text-muted); font-size: 0.925rem;">
+          Recibe la combinación completa con porcentaje de afinidad y consejos prácticos de estilo. Regístrala en tu diario para planificar y nunca repetir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK & ARCHITECTURE -->
+  <section class="section container" id="stack">
+    <div class="section-header">
+      <span class="section-tag">Ingeniería Moderna</span>
+      <h2 class="section-title">Construida con el Stack Android más puntero</h2>
+      <p class="section-desc">Diseñada siguiendo Clean Architecture, principios SOLID y las directrices oficiales de Android.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      <div class="glass-card" style="padding: 20px; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🟣</div>
+        <h4 style="color:#fff; font-size: 1.05rem; font-weight:700;">Kotlin 100%</h4>
+        <p style="font-size: 0.8rem; color:var(--text-muted); margin-top:4px;">Coroutines, Flow asíncrono y Null-Safety estricto.</p>
+      </div>
+
+      <div class="glass-card" style="padding: 20px; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🎨</div>
+        <h4 style="color:#fff; font-size: 1.05rem; font-weight:700;">Jetpack Compose</h4>
+        <p style="font-size: 0.8rem; color:var(--text-muted); margin-top:4px;">Material Design 3 con soporte de paletas dinámicas.</p>
+      </div>
+
+      <div class="glass-card" style="padding: 20px; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">🧠</div>
+        <h4 style="color:#fff; font-size: 1.05rem; font-weight:700;">Google Gemini 1.5</h4>
+        <p style="font-size: 0.8rem; color:var(--text-muted); margin-top:4px;">Razonamiento multimodal y síntesis de moda.</p>
+      </div>
+
+      <div class="glass-card" style="padding: 20px; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 8px;">💾</div>
+        <h4 style="color:#fff; font-size: 1.05rem; font-weight:700;">Room & DataStore</h4>
+        <p style="font-size: 0.8rem; color:var(--text-muted); margin-top:4px;">Base de datos SQLite local tipada y preferencias reactivas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD / RELEASE SECTION -->
+  <section class="section container" id="descargar">
+    <div class="download-card">
+      <div class="download-grid">
+        <!-- Left Download info -->
+        <div>
+          <div class="badge" style="margin-bottom: 16px;">
+            <span class="pulse-dot"></span>
+            <span>Versión v1.0.0 Oficial Disponible</span>
+          </div>
+
+          <h2 style="font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; color: #fff;">
+            Descarga MyOutfit para Android
+          </h2>
+
+          <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 28px;">
+            Obtén el archivo APK listo para instalar en cualquier dispositivo con <strong>Android 8.0 Oreo o superior (API 26+)</strong>. Sin publicidad, sin rastreadores y con total privacidad.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 24px;">
+            <a href="https://github.com/mulineee21/MyOutfit/releases/download/v1.0.0/MyOutfit-JoelMolina-v1.0.0.apk" class="btn btn-primary" style="padding: 14px 28px; font-size: 1.05rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Descargar APK (v1.0.0)</span>
+            </a>
+
+            <a href="https://github.com/mulineee21/MyOutfit/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>Ver Release en GitHub</span>
+            </a>
+          </div>
+
+          <!-- Checksum Box -->
+          <div class="checksum-bar">
+            <span style="font-size: 0.75rem; white-space: nowrap; font-weight: 600;">SHA-256:</span>
+            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.72rem;" id="checksum-text">83328a116d7b8de717f41f2c76eaf92da5150a10ddbdc904657b979dab93b226</span>
+            <button class="btn btn-glass btn-sm" style="padding: 4px 10px; font-size: 0.7rem;" onclick="copyChecksum()" id="btn-copy-checksum">
+              Copiar
+            </button>
+          </div>
+        </div>
+
+        <!-- Right QR Code Scan Box -->
+        <div class="qr-box">
+          <div class="qr-svg-wrapper">
+            <?xml version='1.0' encoding='UTF-8'?>
+<svg width="49mm" height="49mm" version="1.1" viewBox="0 0 49 49" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM7,4H8V5H7zM8,4H9V5H8zM9,4H10V5H9zM10,4H11V5H10zM15,4H16V5H15zM16,4H17V5H16zM19,4H20V5H19zM22,4H23V5H22zM25,4H26V5H25zM26,4H27V5H26zM27,4H28V5H27zM28,4H29V5H28zM29,4H30V5H29zM31,4H32V5H31zM33,4H34V5H33zM35,4H36V5H35zM36,4H37V5H36zM38,4H39V5H38zM39,4H40V5H39zM40,4H41V5H40zM41,4H42V5H41zM42,4H43V5H42zM43,4H44V5H43zM44,4H45V5H44zM4,5H5V6H4zM10,5H11V6H10zM12,5H13V6H12zM14,5H15V6H14zM15,5H16V6H15zM18,5H19V6H18zM19,5H20V6H19zM21,5H22V6H21zM23,5H24V6H23zM26,5H27V6H26zM27,5H28V6H27zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM35,5H36V6H35zM38,5H39V6H38zM44,5H45V6H44zM4,6H5V7H4zM6,6H7V7H6zM7,6H8V7H7zM8,6H9V7H8zM10,6H11V7H10zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM19,6H20V7H19zM20,6H21V7H20zM25,6H26V7H25zM26,6H27V7H26zM31,6H32V7H31zM34,6H35V7H34zM35,6H36V7H35zM38,6H39V7H38zM40,6H41V7H40zM41,6H42V7H41zM42,6H43V7H42zM44,6H45V7H44zM4,7H5V8H4zM6,7H7V8H6zM7,7H8V8H7zM8,7H9V8H8zM10,7H11V8H10zM13,7H14V8H13zM14,7H15V8H14zM15,7H16V8H15zM21,7H22V8H21zM24,7H25V8H24zM25,7H26V8H25zM26,7H27V8H26zM27,7H28V8H27zM29,7H30V8H29zM38,7H39V8H38zM40,7H41V8H40zM41,7H42V8H41zM42,7H43V8H42zM44,7H45V8H44zM4,8H5V9H4zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM17,8H18V9H17zM18,8H19V9H18zM21,8H22V9H21zM23,8H24V9H23zM25,8H26V9H25zM26,8H27V9H26zM27,8H28V9H27zM30,8H31V9H30zM31,8H32V9H31zM35,8H36V9H35zM38,8H39V9H38zM40,8H41V9H40zM41,8H42V9H41zM42,8H43V9H42zM44,8H45V9H44zM4,9H5V10H4zM10,9H11V10H10zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM20,9H21V10H20zM22,9H23V10H22zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM27,9H28V10H27zM28,9H29V10H28zM31,9H32V10H31zM34,9H35V10H34zM35,9H36V10H35zM38,9H39V10H38zM44,9H45V10H44zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM12,10H13V11H12zM14,10H15V11H14zM16,10H17V11H16zM18,10H19V11H18zM20,10H21V11H20zM22,10H23V11H22zM24,10H25V11H24zM26,10H27V11H26zM28,10H29V11H28zM30,10H31V11H30zM32,10H33V11H32zM34,10H35V11H34zM36,10H37V11H36zM38,10H39V11H38zM39,10H40V11H39zM40,10H41V11H40zM41,10H42V11H41zM42,10H43V11H42zM43,10H44V11H43zM44,10H45V11H44zM13,11H14V12H13zM14,11H15V12H14zM15,11H16V12H15zM16,11H17V12H16zM17,11H18V12H17zM21,11H22V12H21zM24,11H25V12H24zM25,11H26V12H25zM26,11H27V12H26zM29,11H30V12H29zM33,11H34V12H33zM34,11H35V12H34zM35,11H36V12H35zM36,11H37V12H36zM4,12H5V13H4zM6,12H7V13H6zM8,12H9V13H8zM10,12H11V13H10zM14,12H15V13H14zM18,12H19V13H18zM20,12H21V13H20zM21,12H22V13H21zM23,12H24V13H23zM24,12H25V13H24zM25,12H26V13H25zM28,12H29V13H28zM29,12H30V13H29zM30,12H31V13H30zM32,12H33V13H32zM33,12H34V13H33zM36,12H37V13H36zM40,12H41V13H40zM43,12H44V13H43zM5,13H6V14H5zM7,13H8V14H7zM9,13H10V14H9zM11,13H12V14H11zM13,13H14V14H13zM15,13H16V14H15zM18,13H19V14H18zM20,13H21V14H20zM21,13H22V14H21zM24,13H25V14H24zM25,13H26V14H25zM29,13H30V14H29zM32,13H33V14H32zM33,13H34V14H33zM36,13H37V14H36zM38,13H39V14H38zM39,13H40V14H39zM41,13H42V14H41zM42,13H43V14H42zM43,13H44V14H43zM44,13H45V14H44zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM13,14H14V15H13zM14,14H15V15H14zM17,14H18V15H17zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM33,14H34V15H33zM37,14H38V15H37zM38,14H39V15H38zM42,14H43V15H42zM43,14H44V15H43zM44,14H45V15H44zM4,15H5V16H4zM6,15H7V16H6zM8,15H9V16H8zM9,15H10V16H9zM11,15H12V16H11zM12,15H13V16H12zM14,15H15V16H14zM15,15H16V16H15zM16,15H17V16H16zM17,15H18V16H17zM19,15H20V16H19zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM28,15H29V16H28zM29,15H30V16H29zM30,15H31V16H30zM31,15H32V16H31zM32,15H33V16H32zM33,15H34V16H33zM36,15H37V16H36zM37,15H38V16H37zM38,15H39V16H38zM4,16H5V17H4zM8,16H9V17H8zM9,16H10V17H9zM10,16H11V17H10zM12,16H13V17H12zM13,16H14V17H13zM18,16H19V17H18zM19,16H20V17H19zM21,16H22V17H21zM23,16H24V17H23zM24,16H25V17H24zM25,16H26V17H25zM27,16H28V17H27zM29,16H30V17H29zM32,16H33V17H32zM33,16H34V17H33zM35,16H36V17H35zM36,16H37V17H36zM38,16H39V17H38zM39,16H40V17H39zM41,16H42V17H41zM4,17H5V18H4zM9,17H10V18H9zM11,17H12V18H11zM13,17H14V18H13zM14,17H15V18H14zM16,17H17V18H16zM17,17H18V18H17zM18,17H19V18H18zM19,17H20V18H19zM23,17H24V18H23zM24,17H25V18H24zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM32,17H33V18H32zM33,17H34V18H33zM38,17H39V18H38zM41,17H42V18H41zM43,17H44V18H43zM44,17H45V18H44zM4,18H5V19H4zM6,18H7V19H6zM7,18H8V19H7zM9,18H10V19H9zM10,18H11V19H10zM11,18H12V19H11zM15,18H16V19H15zM16,18H17V19H16zM20,18H21V19H20zM23,18H24V19H23zM24,18H25V19H24zM32,18H33V19H32zM34,18H35V19H34zM36,18H37V19H36zM38,18H39V19H38zM39,18H40V19H39zM40,18H41V19H40zM43,18H44V19H43zM44,18H45V19H44zM6,19H7V20H6zM7,19H8V20H7zM9,19H10V20H9zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM16,19H17V20H16zM18,19H19V20H18zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM24,19H25V20H24zM25,19H26V20H25zM26,19H27V20H26zM27,19H28V20H27zM29,19H30V20H29zM30,19H31V20H30zM31,19H32V20H31zM33,19H34V20H33zM35,19H36V20H35zM38,19H39V20H38zM40,19H41V20H40zM41,19H42V20H41zM44,19H45V20H44zM6,20H7V21H6zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM10,20H11V21H10zM13,20H14V21H13zM15,20H16V21H15zM16,20H17V21H16zM17,20H18V21H17zM20,20H21V21H20zM21,20H22V21H21zM23,20H24V21H23zM24,20H25V21H24zM29,20H30V21H29zM32,20H33V21H32zM33,20H34V21H33zM34,20H35V21H34zM36,20H37V21H36zM38,20H39V21H38zM39,20H40V21H39zM41,20H42V21H41zM43,20H44V21H43zM5,21H6V22H5zM6,21H7V22H6zM8,21H9V22H8zM9,21H10V22H9zM13,21H14V22H13zM15,21H16V22H15zM17,21H18V22H17zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM24,21H25V22H24zM25,21H26V22H25zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM33,21H34V22H33zM38,21H39V22H38zM41,21H42V22H41zM44,21H45V22H44zM6,22H7V23H6zM10,22H11V23H10zM14,22H15V23H14zM16,22H17V23H16zM20,22H21V23H20zM21,22H22V23H21zM26,22H27V23H26zM29,22H30V23H29zM34,22H35V23H34zM36,22H37V23H36zM40,22H41V23H40zM41,22H42V23H41zM42,22H43V23H42zM44,22H45V23H44zM4,23H5V24H4zM7,23H8V24H7zM9,23H10V24H9zM15,23H16V24H15zM16,23H17V24H16zM20,23H21V24H20zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM26,23H27V24H26zM27,23H28V24H27zM31,23H32V24H31zM33,23H34V24H33zM35,23H36V24H35zM39,23H40V24H39zM4,24H5V25H4zM5,24H6V25H5zM6,24H7V25H6zM8,24H9V25H8zM9,24H10V25H9zM10,24H11V25H10zM13,24H14V25H13zM14,24H15V25H14zM15,24H16V25H15zM18,24H19V25H18zM19,24H20V25H19zM24,24H25V25H24zM26,24H27V25H26zM27,24H28V25H27zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM37,24H38V25H37zM38,24H39V25H38zM39,24H40V25H39zM43,24H44V25H43zM44,24H45V25H44zM4,25H5V26H4zM5,25H6V26H5zM7,25H8V26H7zM12,25H13V26H12zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM21,25H22V26H21zM24,25H25V26H24zM26,25H27V26H26zM28,25H29V26H28zM32,25H33V26H32zM36,25H37V26H36zM37,25H38V26H37zM42,25H43V26H42zM43,25H44V26H43zM44,25H45V26H44zM4,26H5V27H4zM5,26H6V27H5zM7,26H8V27H7zM8,26H9V27H8zM10,26H11V27H10zM14,26H15V27H14zM15,26H16V27H15zM17,26H18V27H17zM19,26H20V27H19zM24,26H25V27H24zM29,26H30V27H29zM34,26H35V27H34zM38,26H39V27H38zM39,26H40V27H39zM40,26H41V27H40zM43,26H44V27H43zM44,26H45V27H44zM4,27H5V28H4zM5,27H6V28H5zM6,27H7V28H6zM9,27H10V28H9zM11,27H12V28H11zM12,27H13V28H12zM17,27H18V28H17zM18,27H19V28H18zM21,27H22V28H21zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM27,27H28V28H27zM29,27H30V28H29zM32,27H33V28H32zM33,27H34V28H33zM34,27H35V28H34zM35,27H36V28H35zM36,27H37V28H36zM40,27H41V28H40zM43,27H44V28H43zM44,27H45V28H44zM9,28H10V29H9zM10,28H11V29H10zM12,28H13V29H12zM13,28H14V29H13zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM24,28H25V29H24zM25,28H26V29H25zM28,28H29V29H28zM29,28H30V29H29zM31,28H32V29H31zM33,28H34V29H33zM36,28H37V29H36zM38,28H39V29H38zM39,28H40V29H39zM43,28H44V29H43zM4,29H5V30H4zM5,29H6V30H5zM6,29H7V30H6zM7,29H8V30H7zM9,29H10V30H9zM11,29H12V30H11zM12,29H13V30H12zM13,29H14V30H13zM14,29H15V30H14zM15,29H16V30H15zM18,29H19V30H18zM24,29H25V30H24zM25,29H26V30H25zM26,29H27V30H26zM28,29H29V30H28zM32,29H33V30H32zM34,29H35V30H34zM37,29H38V30H37zM38,29H39V30H38zM43,29H44V30H43zM44,29H45V30H44zM5,30H6V31H5zM6,30H7V31H6zM7,30H8V31H7zM9,30H10V31H9zM10,30H11V31H10zM14,30H15V31H14zM15,30H16V31H15zM18,30H19V31H18zM19,30H20V31H19zM21,30H22V31H21zM24,30H25V31H24zM25,30H26V31H25zM26,30H27V31H26zM32,30H33V31H32zM34,30H35V31H34zM38,30H39V31H38zM39,30H40V31H39zM42,30H43V31H42zM43,30H44V31H43zM44,30H45V31H44zM4,31H5V32H4zM7,31H8V32H7zM8,31H9V32H8zM13,31H14V32H13zM15,31H16V32H15zM17,31H18V32H17zM18,31H19V32H18zM19,31H20V32H19zM20,31H21V32H20zM21,31H22V32H21zM23,31H24V32H23zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM28,31H29V32H28zM29,31H30V32H29zM31,31H32V32H31zM33,31H34V32H33zM34,31H35V32H34zM36,31H37V32H36zM40,31H41V32H40zM43,31H44V32H43zM4,32H5V33H4zM5,32H6V33H5zM8,32H9V33H8zM10,32H11V33H10zM12,32H13V33H12zM13,32H14V33H13zM14,32H15V33H14zM15,32H16V33H15zM16,32H17V33H16zM17,32H18V33H17zM19,32H20V33H19zM21,32H22V33H21zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM27,32H28V33H27zM28,32H29V33H28zM29,32H30V33H29zM31,32H32V33H31zM33,32H34V33H33zM35,32H36V33H35zM38,32H39V33H38zM40,32H41V33H40zM41,32H42V33H41zM43,32H44V33H43zM5,33H6V34H5zM8,33H9V34H8zM9,33H10V34H9zM11,33H12V34H11zM13,33H14V34H13zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM23,33H24V34H23zM27,33H28V34H27zM28,33H29V34H28zM29,33H30V34H29zM32,33H33V34H32zM34,33H35V34H34zM37,33H38V34H37zM38,33H39V34H38zM41,33H42V34H41zM43,33H44V34H43zM44,33H45V34H44zM4,34H5V35H4zM6,34H7V35H6zM7,34H8V35H7zM10,34H11V35H10zM11,34H12V35H11zM13,34H14V35H13zM14,34H15V35H14zM15,34H16V35H15zM17,34H18V35H17zM21,34H22V35H21zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM28,34H29V35H28zM33,34H34V35H33zM36,34H37V35H36zM39,34H40V35H39zM41,34H42V35H41zM42,34H43V35H42zM43,34H44V35H43zM44,34H45V35H44zM5,35H6V36H5zM7,35H8V36H7zM8,35H9V36H8zM11,35H12V36H11zM17,35H18V36H17zM18,35H19V36H18zM21,35H22V36H21zM22,35H23V36H22zM23,35H24V36H23zM25,35H26V36H25zM28,35H29V36H28zM29,35H30V36H29zM31,35H32V36H31zM33,35H34V36H33zM34,35H35V36H34zM36,35H37V36H36zM37,35H38V36H37zM38,35H39V36H38zM40,35H41V36H40zM41,35H42V36H41zM43,35H44V36H43zM4,36H5V37H4zM7,36H8V37H7zM8,36H9V37H8zM10,36H11V37H10zM13,36H14V37H13zM15,36H16V37H15zM17,36H18V37H17zM19,36H20V37H19zM21,36H22V37H21zM24,36H25V37H24zM25,36H26V37H25zM27,36H28V37H27zM28,36H29V37H28zM29,36H30V37H29zM35,36H36V37H35zM36,36H37V37H36zM37,36H38V37H37zM38,36H39V37H38zM39,36H40V37H39zM40,36H41V37H40zM43,36H44V37H43zM12,37H13V38H12zM13,37H14V38H13zM14,37H15V38H14zM16,37H17V38H16zM21,37H22V38H21zM24,37H25V38H24zM28,37H29V38H28zM29,37H30V38H29zM32,37H33V38H32zM36,37H37V38H36zM40,37H41V38H40zM43,37H44V38H43zM44,37H45V38H44zM4,38H5V39H4zM5,38H6V39H5zM6,38H7V39H6zM7,38H8V39H7zM8,38H9V39H8zM9,38H10V39H9zM10,38H11V39H10zM15,38H16V39H15zM16,38H17V39H16zM18,38H19V39H18zM19,38H20V39H19zM20,38H21V39H20zM22,38H23V39H22zM25,38H26V39H25zM28,38H29V39H28zM30,38H31V39H30zM33,38H34V39H33zM35,38H36V39H35zM36,38H37V39H36zM38,38H39V39H38zM40,38H41V39H40zM42,38H43V39H42zM43,38H44V39H43zM44,38H45V39H44zM4,39H5V40H4zM10,39H11V40H10zM13,39H14V40H13zM14,39H15V40H14zM15,39H16V40H15zM17,39H18V40H17zM19,39H20V40H19zM21,39H22V40H21zM22,39H23V40H22zM24,39H25V40H24zM28,39H29V40H28zM29,39H30V40H29zM30,39H31V40H30zM31,39H32V40H31zM32,39H33V40H32zM33,39H34V40H33zM35,39H36V40H35zM36,39H37V40H36zM40,39H41V40H40zM41,39H42V40H41zM4,40H5V41H4zM6,40H7V41H6zM7,40H8V41H7zM8,40H9V41H8zM10,40H11V41H10zM12,40H13V41H12zM18,40H19V41H18zM22,40H23V41H22zM23,40H24V41H23zM24,40H25V41H24zM28,40H29V41H28zM30,40H31V41H30zM31,40H32V41H31zM32,40H33V41H32zM33,40H34V41H33zM36,40H37V41H36zM37,40H38V41H37zM38,40H39V41H38zM39,40H40V41H39zM40,40H41V41H40zM43,40H44V41H43zM44,40H45V41H44zM4,41H5V42H4zM6,41H7V42H6zM7,41H8V42H7zM8,41H9V42H8zM10,41H11V42H10zM13,41H14V42H13zM15,41H16V42H15zM16,41H17V42H16zM18,41H19V42H18zM19,41H20V42H19zM20,41H21V42H20zM21,41H22V42H21zM22,41H23V42H22zM24,41H25V42H24zM25,41H26V42H25zM28,41H29V42H28zM29,41H30V42H29zM30,41H31V42H30zM33,41H34V42H33zM35,41H36V42H35zM36,41H37V42H36zM37,41H38V42H37zM40,41H41V42H40zM41,41H42V42H41zM4,42H5V43H4zM6,42H7V43H6zM7,42H8V43H7zM8,42H9V43H8zM10,42H11V43H10zM12,42H13V43H12zM13,42H14V43H13zM14,42H15V43H14zM15,42H16V43H15zM17,42H18V43H17zM20,42H21V43H20zM21,42H22V43H21zM22,42H23V43H22zM29,42H30V43H29zM30,42H31V43H30zM32,42H33V43H32zM35,42H36V43H35zM39,42H40V43H39zM40,42H41V43H40zM41,42H42V43H41zM42,42H43V43H42zM43,42H44V43H43zM44,42H45V43H44zM4,43H5V44H4zM10,43H11V44H10zM13,43H14V44H13zM21,43H22V44H21zM24,43H25V44H24zM25,43H26V44H25zM26,43H27V44H26zM27,43H28V44H27zM28,43H29V44H28zM29,43H30V44H29zM30,43H31V44H30zM31,43H32V44H31zM32,43H33V44H32zM33,43H34V44H33zM36,43H37V44H36zM38,43H39V44H38zM39,43H40V44H39zM41,43H42V44H41zM43,43H44V44H43zM4,44H5V45H4zM5,44H6V45H5zM6,44H7V45H6zM7,44H8V45H7zM8,44H9V45H8zM9,44H10V45H9zM10,44H11V45H10zM12,44H13V45H12zM13,44H14V45H13zM15,44H16V45H15zM17,44H18V45H17zM18,44H19V45H18zM19,44H20V45H19zM21,44H22V45H21zM23,44H24V45H23zM24,44H25V45H24zM25,44H26V45H25zM28,44H29V45H28zM29,44H30V45H29zM32,44H33V45H32zM33,44H34V45H33zM35,44H36V45H35zM36,44H37V45H36zM37,44H38V45H37zM39,44H40V45H39zM40,44H41V45H40zM43,44H44V45H43zM44,44H45V45H44z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none" /></svg>
+          </div>
+          <div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff;">Escanea con tu móvil</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+              Apunta la cámara de tu smartphone para descargar directamente el paquete APK sin cables ni pasos extra.
+            </p>
+          </div>
+          <div class="badge" style="font-size: 0.72rem; padding: 4px 10px;">
+            <span>Archivo: MyOutfit-JoelMolina-v1.0.0.apk</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Installation Guide Steps -->
+      <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <div style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
+          <div>
+            <h5 style="color: #fff; font-size: 0.9rem; font-weight: 600;">Descarga el archivo</h5>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Presiona el botón de descarga o escanea el QR en tu dispositivo Android.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <div style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</div>
+          <div>
+            <h5 style="color: #fff; font-size: 0.9rem; font-weight: 600;">Permite la instalación</h5>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Si tu navegador lo solicita, pulsa en "Permitir orígenes desconocidos" en Ajustes.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <div style="background: rgba(52, 211, 153, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</div>
+          <div>
+            <h5 style="color: #fff; font-size: 0.9rem; font-weight: 600;">Abre y disfruta</h5>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2px;">Inicia MyOutfit, añade tus primeras prendas y genera tu primer outfit con Gemini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section container" id="preguntas" style="max-width: 860px;">
+    <div class="section-header">
+      <span class="section-tag">Dudas Frecuentes</span>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-desc">Todo lo que necesitas saber antes de empezar a usar MyOutfit.</p>
+    </div>
+
+    <div class="faq-accordion">
+      <div class="faq-item open">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Cómo funciona la integración con la IA de Google Gemini?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          MyOutfit se conecta directamente a la API oficial de Google Gemini (modelo <code>gemini-1.5-flash</code>) a través de tu propia API Key personal (la cual puedes generar gratis en Google AI Studio). La IA recibe las descripciones, colores y categorías de las prendas que tienes en tu armario digital, analiza tu ocasión, vibe y el Lookbook de inspiración, y genera el conjunto ideal acompañado de razones y consejos de estilo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Mis fotos de ropa se envían o almacenan en servidores externos?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          No. La privacidad es un pilar fundamental del proyecto. Todas las fotos de tus prendas se almacenan exclusivamente en el almacenamiento interno privado de tu propio smartphone usando Android FileProvider y Room SQLite. No existe ningún servidor intermedio, backend de terceros ni telemetría que recopile tus fotografías.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Puedo usar la aplicación sin conexión a internet?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          Sí. Además del modo Gemini IA, la app incluye un <strong>motor heurístico algorítmico local</strong> que genera combinaciones instantáneas evaluando colores contrastantes, prendas superiores/inferiores y categorías sin necesidad de internet ni de saldo de API.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿Qué versión de Android necesito para instalar MyOutfit?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          MyOutfit es compatible con <strong>Android 8.0 (API 26) en adelante</strong>, incluyendo Android 9, 10, 11, 12, 13, 14 y 15. En Android 12 o superior aprovecha automáticamente el sistema Material You Dynamic Theming.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>¿La aplicación es gratuita y de código abierto?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          Sí, el proyecto ha sido desarrollado por Joel Molina como aplicación de código abierto en GitHub bajo arquitectura moderna Clean MVVM en Kotlin nativo.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px;">
+            <img src="data:image/webp;base64,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" alt="MyOutfit Logo" />
+            <span>MyOutfit</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 400px; line-height: 1.6;">
+            Tu armario digital inteligente desarrollado con Kotlin, Jetpack Compose y la potencia de Google Gemini IA. Diseñado para simplificar tu rutina diaria con estilo y privacidad.
+          </p>
+        </div>
+
+        <div>
+          <h5 style="color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;">Navegación</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li><a href="#caracteristicas" class="nav-link">Características</a></li>
+            <li><a href="#como-funciona" class="nav-link">Cómo Funciona</a></li>
+            <li><a href="#demo" class="nav-link">Demo Interactiva</a></li>
+            <li><a href="#descargar" class="nav-link">Descargar APK</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 style="color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;">Proyecto & Autor</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li><a href="https://github.com/mulineee21/MyOutfit" target="_blank" rel="noopener noreferrer" class="nav-link">Repositorio GitHub</a></li>
+            <li><a href="https://github.com/mulineee21/MyOutfit/releases" target="_blank" rel="noopener noreferrer" class="nav-link">Historial de Releases</a></li>
+            <li><a href="https://github.com/mulineee21" target="_blank" rel="noopener noreferrer" class="nav-link">Perfil de Joel Molina</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          © 2026 <strong>MyOutfit</strong> — Creado por <a href="https://github.com/mulineee21" target="_blank" rel="noopener noreferrer" style="color: #c084fc; text-decoration: none; font-weight: 600;">Joel Molina (@mulineee21)</a>.
+        </p>
+        <a href="#" class="btn btn-glass btn-sm" style="font-size: 0.75rem;">
+          ↑ Volver arriba
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR PHONE SIMULATOR & PLAYGROUND -->
+  <script>
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // Checksum Copy
+    function copyChecksum() {
+      const text = document.getElementById('checksum-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('btn-copy-checksum');
+        btn.innerText = '¡Copiado!';
+        btn.style.borderColor = '#34d399';
+        btn.style.color = '#34d399';
+        setTimeout(() => {
+          btn.innerText = 'Copiar';
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    // Phone Tab Switcher
+    function switchPhoneTab(tabName, btn) {
+      document.querySelectorAll('.phone-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const screens = {
+        'closet': document.getElementById('sim-screen-closet'),
+        'recommendation': document.getElementById('sim-screen-recommendation'),
+        'lookbook': document.getElementById('sim-screen-lookbook'),
+        'log': document.getElementById('sim-screen-log')
+      };
+
+      Object.keys(screens).forEach(key => {
+        if (screens[key]) {
+          screens[key].style.display = (key === tabName) ? 'block' : 'none';
+        }
+      });
+    }
+
+    // Phone Simulator State
+    let currentPhoneOccasion = 'Oficina & Trabajo';
+    let currentPhoneVibe = 'Elegante y cómodo';
+
+    function simSelectOccasion(el, text) {
+      el.parentElement.querySelectorAll('.chip-btn').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      currentPhoneOccasion = text;
+    }
+
+    function simSelectVibe(el, text) {
+      el.parentElement.querySelectorAll('.chip-btn').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      currentPhoneVibe = text;
+    }
+
+    const simDatabase = [
+      {
+        title: "Look Oficina Minimalista",
+        matchPct: "98% Match",
+        items: [
+          { icon: "👔", name: "Camisa Oxford", sub: "Azul Claro" },
+          { icon: "👖", name: "Chino Slim", sub: "Beige Arena" },
+          { icon: "👞", name: "Derby Cuero", sub: "Marrón Tabaco" }
+        ],
+        advice: "💡 Consejo Gemini: Dobla ligeramente las mangas de la camisa para proyectar cercanía sin perder elegancia profesional."
+      },
+      {
+        title: "Look Fiesta & Noche Urbana",
+        matchPct: "96% Match",
+        items: [
+          { icon: "🧥", name: "Biker Jacket", sub: "Negro Cuero" },
+          { icon: "👕", name: "Tee Básica", sub: "Blanco Óptico" },
+          { icon: "👖", name: "Jeans Skinny", sub: "Negro Lavado" }
+        ],
+        advice: "💡 Consejo Gemini: El contraste blanco y negro con cazadora de cuero crea un impacto visual impecable bajo iluminación nocturna."
+      },
+      {
+        title: "Look Cena Romántica Chic",
+        matchPct: "99% Match",
+        items: [
+          { icon: "🧥", name: "Blazer Tweed", sub: "Gris Marengo" },
+          { icon: "👕", name: "Jersey Cuello Alto", sub: "Negro Fino" },
+          { icon: "👞", name: "Chelsea Boots", sub: "Ante Negro" }
+        ],
+        advice: "💡 Consejo Gemini: El cuello vuelto estiliza la silueta y aporta sofisticación limpia sin necesidad de corbata."
+      },
+      {
+        title: "Look Relax de Fin de Semana",
+        matchPct: "95% Match",
+        items: [
+          { icon: "🧥", name: "Sudadera Capucha", sub: "Gris Melange" },
+          { icon: "👖", name: "Joggers Cargo", sub: "Verde Militar" },
+          { icon: "👟", name: "Sneakers Retro", sub: "Blanco / Crema" }
+        ],
+        advice: "💡 Consejo Gemini: Los tonos tierra y neutros aportan máxima comodidad visual para paseos y brunch distendido."
+      }
+    ];
+
+    let simIndex = 0;
+
+    function simRunGeminiRecommendation() {
+      const btn = document.getElementById('sim-btn-text');
+      const origText = btn.innerText;
+      btn.innerText = "Gemini pensando...";
+
+      const container = document.getElementById('sim-result-container');
+      container.style.opacity = '0.4';
+      container.style.filter = 'blur(2px)';
+
+      setTimeout(() => {
+        simIndex = (simIndex + 1) % simDatabase.length;
+        const data = simDatabase[simIndex];
+
+        document.getElementById('sim-outfit-title').innerText = data.title;
+        document.getElementById('sim-match-pct').innerText = data.matchPct;
+        document.getElementById('sim-ai-advice').innerHTML = data.advice;
+
+        const grid = document.getElementById('sim-garments-grid');
+        grid.innerHTML = data.items.map(item => `
+          <div style="background: rgba(255,255,255,0.06); padding: 8px 6px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.2rem;">${item.icon}</div>
+            <div style="font-size: 0.65rem; font-weight: 600; color:#e2e8f0; margin-top:2px;">${item.name}</div>
+            <div style="font-size: 0.55rem; color:#94a3b8;">${item.sub}</div>
+          </div>
+        `).join('');
+
+        container.style.opacity = '1';
+        container.style.filter = 'none';
+        btn.innerText = origText;
+      }, 550);
+    }
+
+    // Web Interactive Playground Demo
+    let selectedOccasion = 'work';
+    let selectedVibe = 'chic';
+
+    function webSelectChip(el, occasion) {
+      document.querySelectorAll('#web-occasion-chips .interactive-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedOccasion = occasion;
+    }
+
+    function webSelectVibe(el, vibe) {
+      document.querySelectorAll('#web-vibe-chips .interactive-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedVibe = vibe;
+    }
+
+    const playgroundDatabase = {
+      'work': {
+        title: "Look Formal Contemporáneo",
+        reason: "Equilibrio ideal entre sobriedad formal y comodidad para jornadas de oficina dinámicas.",
+        score: "99% Match",
+        items: [
+          { icon: "🧥", name: "Blazer Estructurado", cat: "Parte Superior • Azul Marino" },
+          { icon: "👖", name: "Pantalón Sastre Chino", cat: "Parte Inferior • Gris Carbón" },
+          { icon: "👞", name: "Zapatos Oxford Brogue", cat: "Calzado • Cuero Café" }
+        ],
+        advice: '"Para reuniones formales, un pañuelo de bolsillo blanco sutil elevará inmediatamente el tono sin necesidad de corbata."'
+      },
+      'night': {
+        title: "Look Biker All-Black Night",
+        reason: "Corte moderno con texturas de cuero y denim oscuro para eventos nocturnos y clubes.",
+        score: "97% Match",
+        items: [
+          { icon: "🧥", name: "Cazadora Biker Cuero", cat: "Abrigo • Negro Mate" },
+          { icon: "👕", name: "Camiseta Slim Fit", cat: "Parte Superior • Carbón" },
+          { icon: "👖", name: "Jeans Skinny Waxed", cat: "Parte Inferior • Negro" },
+          { icon: "🥾", name: "Botines Chelsea", cat: "Calzado • Cuero Negro" }
+        ],
+        advice: '"El acabado mate de los jeans realza el brillo sutil de la cazadora sin sobrecargar el conjunto."'
+      },
+      'casual': {
+        title: "Street Casual Minimal",
+        reason: "Silueta holgada y relajada con paleta de colores neutros para el día a día.",
+        score: "98% Match",
+        items: [
+          { icon: "👕", name: "Camiseta Oversize", cat: "Parte Superior • Blanco Puro" },
+          { icon: "👖", name: "Pantalón Carpenter", cat: "Parte Inferior • Beige Cálido" },
+          { icon: "👟", name: "Zapatillas Retro Low", cat: "Calzado • Blanco / Crudo" }
+        ],
+        advice: '"Combina con una tote bag de lona o reloj minimalista para un toque pulido sin esfuerzo."'
+      },
+      'date': {
+        title: "Elegancia Seductora & Texturas",
+        reason: "Sofisticación cálida pensada para cenas con atmósfera íntima y luz tenue.",
+        score: "99% Match",
+        items: [
+          { icon: "🧶", name: "Jersey Punto Merino", cat: "Parte Superior • Burdeos Vino" },
+          { icon: "👖", name: "Pantalón Plisado", cat: "Parte Inferior • Negro" },
+          { icon: "👞", name: "Mocasines Penny Loafers", cat: "Calzado • Cuero Burdeos" }
+        ],
+        advice: '"El color burdeos transmite calidez y confianza. Evita prendas con logos visibles para mantener el enfoque en las texturas."'
+      }
+    };
+
+    function runWebDemoGeneration() {
+      const btn = document.getElementById('web-btn-text');
+      const origText = btn.innerText;
+      btn.innerText = "Gemini 1.5 analizando armario...";
+
+      const list = document.getElementById('web-items-list');
+      list.style.opacity = '0.3';
+      list.style.filter = 'blur(3px)';
+
+      setTimeout(() => {
+        const data = playgroundDatabase[selectedOccasion] || playgroundDatabase['work'];
+        
+        document.getElementById('web-result-title').innerText = data.title;
+        document.getElementById('web-result-reason').innerText = data.reason;
+        document.getElementById('web-match-score').innerText = data.score;
+        document.getElementById('web-advice-text').innerText = data.advice;
+
+        list.innerHTML = data.items.map(item => `
+          <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 1.4rem;">${item.icon}</span>
+              <div>
+                <div style="font-size: 0.88rem; font-weight: 600; color: #fff;">${item.name}</div>
+                <div style="font-size: 0.72rem; color: #94a3b8;">${item.cat}</div>
+              </div>
+            </div>
+            <span class="tag-pill">En Armario</span>
+          </div>
+        `).join('');
+
+        list.style.opacity = '1';
+        list.style.filter = 'none';
+        btn.innerText = origText;
+      }, 500);
+    }
+  </script>
+</body>
+</html>
