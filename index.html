@@ -53,6 +53,9 @@
 
     html {
       scroll-padding-top: 110px;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
     }
 
     body {
@@ -60,6 +63,9 @@
       color: var(--text-main);
       font-family: var(--font-sans);
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      position: relative;
       line-height: 1.6;
       selection-background-color: rgba(168, 85, 247, 0.35);
       background-image: 
@@ -108,9 +114,11 @@
     }
 
     .container {
+      width: 100%;
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px;
+      box-sizing: border-box;
     }
 
     /* Floating Navigation */
@@ -119,6 +127,9 @@
       top: 20px;
       left: 0;
       right: 0;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
       z-index: 1000;
       display: flex;
       justify-content: center;
@@ -129,6 +140,7 @@
     .nav-bar {
       width: 100%;
       max-width: 1100px;
+      box-sizing: border-box;
       padding: 12px 24px;
       border-radius: 9999px;
       display: flex;
@@ -272,9 +284,10 @@
 
     /* Hero Section */
     .hero {
-      padding-top: 165px;
+      padding-top: 195px;
       padding-bottom: 80px;
       position: relative;
+      box-sizing: border-box;
     }
 
     .hero-grid {
@@ -282,6 +295,8 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 60px;
       align-items: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .hero-title {
@@ -291,6 +306,8 @@
       letter-spacing: -0.03em;
       margin-top: 20px;
       margin-bottom: 24px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .hero-desc {
@@ -299,6 +316,8 @@
       line-height: 1.7;
       margin-bottom: 36px;
       max-width: 580px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .hero-ctas {
@@ -332,11 +351,16 @@
       position: relative;
       display: flex;
       justify-content: center;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 10px 0;
     }
 
     .phone-glow {
       position: absolute;
-      inset: -20px;
+      inset: 0;
+      max-width: 100%;
       background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(244, 114, 182, 0.15) 50%, transparent 75%);
       filter: blur(40px);
       z-index: 0;
@@ -942,7 +966,7 @@
         font-size: 2.75rem;
       }
       .hero {
-        padding-top: 150px;
+        padding-top: 180px;
       }
       .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 {
         grid-column: span 12;
@@ -972,18 +996,27 @@
       /* Fixed Nav Mobile Styling */
       .nav-wrapper {
         top: 10px;
-        padding: 0 12px;
+        padding: 0 10px;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
       }
 
       .nav-bar {
         padding: 8px 12px;
         border-radius: 9999px;
         gap: 8px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
       }
 
       .brand {
         font-size: 1.05rem;
         gap: 8px;
+        min-width: 0;
+        flex-shrink: 1;
       }
 
       .brand img {
@@ -995,23 +1028,29 @@
         display: none; /* Hide version badge on mobile navbar to prevent squeezing */
       }
 
-      .mobile-menu-toggle {
+      .nav-actions {
         display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
       }
 
-      .nav-btn-github {
-        padding: 8px;
+      .mobile-menu-toggle {
+        display: flex;
+        padding: 7px;
         width: 36px;
         height: 36px;
       }
 
-      .nav-btn-github .nav-btn-text {
-        display: none;
+      /* GitHub is inside the mobile dropdown drawer to keep navbar clean & light */
+      .nav-btn-github {
+        display: none !important;
       }
 
       .nav-btn-download {
-        padding: 8px 14px;
+        padding: 7px 12px;
         font-size: 0.8rem;
+        gap: 6px;
       }
 
       .nav-btn-download .nav-btn-text {
@@ -1024,18 +1063,22 @@
 
       /* Hero Mobile - generous clearance so fixed nav never overlaps badge or title */
       .hero {
-        padding-top: 140px;
+        padding-top: 175px;
         padding-bottom: 40px;
       }
 
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
         line-height: 1.18;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       .hero-desc {
         font-size: 1rem;
         margin-bottom: 24px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       .hero-ctas {
@@ -1077,6 +1120,7 @@
       /* Sections Mobile */
       .section {
         padding: 60px 0;
+        scroll-margin-top: 100px;
       }
 
       .section-header {
@@ -1093,6 +1137,8 @@
 
       .container {
         padding: 0 16px;
+        max-width: 100%;
+        box-sizing: border-box;
       }
 
       .glass-card {
@@ -1184,12 +1230,13 @@
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       .hero-title {
         font-size: 1.85rem;
+        line-height: 1.22;
       }
       .hero {
-        padding-top: 130px;
+        padding-top: 165px;
       }
 
       .hero-stats {
