@@ -8,7 +8,7 @@
 
 🌐 **Sitio Web en Vivo:** [https://mulineee21.github.io/myoutfit-web/](https://mulineee21.github.io/myoutfit-web/)  
 📱 **Repositorio de la App Android:** [mulineee21/MyOutfit](https://github.com/mulineee21/MyOutfit)  
-📦 **Descarga APK (v1.0.0):** [MyOutfit-JoelMolina-v1.0.0.apk](https://github.com/mulineee21/MyOutfit/releases/download/v1.0.0/MyOutfit-JoelMolina-v1.0.0.apk)
+📦 **Descarga APK (v2.0):** [MyOutfit-JoelMolina-v2.0.apk](https://github.com/mulineee21/MyOutfit/releases/download/v2.0/MyOutfit-JoelMolina-v2.0.apk)
 
 ---
 
