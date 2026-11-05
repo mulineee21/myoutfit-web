@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#c026d3"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="garmentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#logoBgGrad)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <circle cx="36" cy="36" r="32" fill="white" opacity="0.15"/>
+
+  <path d="M40,58 L48,51 L60,58 L72,51 L80,58 L87,71 L78,76 L74,67 L74,90 C74,93 71,95 68,95 L52,95 C49,95 46,93 46,90 L46,67 L42,76 L33,71 Z" 
+        fill="url(#garmentGrad)" 
+        opacity="0.95"/>
+
+  <polygon points="53,53 60,67 67,53" fill="url(#logoBgGrad)" opacity="0.75"/>
+
+  <path d="M60,38 C60,34.5 61.8,32 64.5,30 C67.5,27.8 68.5,23.8 66.5,20.5 C64.5,17.2 59.5,16.5 56,19.2 C54,20.8 53.2,23 53.2,25" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="5" 
+        stroke-linecap="round"/>
+
+  <path d="M60,38 L28,56 C24.5,58 26,63 30,63 L90,63 C94,63 95.5,58 92,56 Z" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="5.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <path d="M90,16 C90,22 93,25 99,25 C93,25 90,28 90,34 C90,28 87,25 81,25 C87,25 90,22 90,16 Z" 
+        fill="#fef08a"/>
+
+  <circle cx="28" cy="30" r="3" fill="#ffffff" opacity="0.9"/>
+</svg>
